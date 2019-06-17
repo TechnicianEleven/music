@@ -5,7 +5,7 @@ import App from './App'
 import fastclick from 'fastclick'
 import router from './router'
 import VueLazyLoad from 'vue-lazyload'
-// 全局的配置css直接写在主文件中
+// 全局的配置css直接写在主文件
 import 'common/stylus/index.styl'
 Vue.config.productionTip = false
 fastclick.attach(document.body)
