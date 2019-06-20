@@ -10,7 +10,9 @@ export default {
   props: {
     probeType: {
       type: Number,
-      default: 1
+      default () {
+        return 1
+      }
     },
     click: {
       type: Boolean,
@@ -19,6 +21,10 @@ export default {
     data: {
       type: Array,
       default: null
+    },
+    listenScroll: {
+      type: Boolean,
+      default: false
     }
   },
   mounted() {
@@ -35,6 +41,11 @@ export default {
         probeType: this.probeType,
         click: this.click
       })
+      if (this.listenScroll) {
+        this.scroll.on('scroll', (pos) => {
+          this.$emit('scroll', pos)
+        })
+      }
     },
     enable() {
       this.scroll && this.scroll.enable()
@@ -44,6 +55,12 @@ export default {
     },
     refresh() {
       this.scroll && this.scroll.refresh()
+    },
+    scrollTo() {
+      this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
+    },
+    scrollToElement() {
+      this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
     }
   },
   watch: {
