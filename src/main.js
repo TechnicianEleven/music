@@ -5,6 +5,7 @@ import App from './App'
 import fastclick from 'fastclick'
 import router from './router'
 import VueLazyLoad from 'vue-lazyload'
+import store from './store'
 // 全局的配置css直接写在主文件中
 import 'common/stylus/index.styl'
 Vue.config.productionTip = false
@@ -16,5 +17,6 @@ Vue.use(VueLazyLoad, {
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
